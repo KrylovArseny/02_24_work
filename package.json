@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "sfs",
   "main": "webpack.config.js",
+  "scripts": {
+    "prod": "webpack --mode production",
+    "dev": "webpack --mode development"
+  },
   "dependencies": {
     "-": "^0.0.1",
     "html-webpack-plugin": "^5.1.0",
@@ -24,10 +28,6 @@
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
     "style-loader": "^2.0.0"
-  },
-  "scripts": {
-    "prod": "webpack --mode production",
-    "dev": "webpack --mode development"
   },
   "author": "krylovars",
   "license": "ISC",
