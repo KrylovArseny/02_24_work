@@ -7,14 +7,13 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const isProd = process.env.NODE_ENV === 'production';
 const isDev = !isProd;
 
-console.log('IS PROD', isProd);
-console.log('IS DEV', isDev);
+const  filename = ext => isDev ? `bundle.${ext}` : `bundle.[hash].${ext}`;
 
 module.exports = {
-  entry: './src',
+  entry: ["@babel/polyfill", "./src"],
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.[hash].js',
+    filename: filename('js'),
   },
     resolve: {
         extensions: ['.js'],
@@ -46,9 +45,20 @@ module.exports = {
       },
     ],
   },
-  plugins: [
+    devtool: isDev ? "source-map" : false,
+    devServer: {
+        contentBase: path.join(__dirname, 'dist'),
+        compress: true,
+        port: 3000,
+        hot: isDev,
+        hotOnly: false,
+        liveReload: isDev,
+        watchContentBase: true
+    },
+
+    plugins: [
     new MiniCssExtractPlugin({
-      filename: "[name].[hash].css",
+      filename: filename('css'),
       chunkFilename: "[id].[hash].css",
     }),
     new HtmlWebpackPlugin(),

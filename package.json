@@ -5,10 +5,11 @@
   "main": "webpack.config.js",
   "scripts": {
     "prod": "cross-env NODE_ENV=production webpack --mode production",
-    "dev": "cross-env NODE_ENV=development webpack --mode development"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --mode development"
   },
   "dependencies": {
     "-": "^0.0.1",
+    "@babel/polyfill": "^7.12.1",
     "html-webpack-plugin": "^5.1.0",
     "webpack": "^5.23.0",
     "webpack-cli": "^4.5.0"
@@ -28,7 +29,8 @@
     "postcss-preset-env": "^6.7.0",
     "sass": "^1.32.8",
     "sass-loader": "^11.0.1",
-    "style-loader": "^2.0.0"
+    "style-loader": "^2.0.0",
+    "webpack-dev-server": "^3.11.2"
   },
   "author": "krylovars",
   "license": "ISC",
