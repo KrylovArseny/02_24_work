@@ -1,6 +1,6 @@
 import './scss/index.scss'
 
-console.log('Working!');
+console.log('sssss!');
 
 async function start() {
     await Promise.resolve()
